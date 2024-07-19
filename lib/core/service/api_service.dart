@@ -33,7 +33,7 @@ class ApiService {
         } else {
           return Left(
             ErrorModel(
-              ApiError.other,
+              ApiError.other,message:  response.data['message']
             ),
           );
         }
@@ -44,7 +44,7 @@ class ApiService {
 
         return Left(
           ErrorModel(
-            error,
+            error,message: e.response!.data['message']
           ),
         );
       }

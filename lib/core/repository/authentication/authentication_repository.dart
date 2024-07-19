@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:admin_app/core/api_end_points/api_end_points.dart';
 import 'package:admin_app/core/error/failure.dart';
 import 'package:admin_app/core/models/common_model.dart';
@@ -18,6 +20,7 @@ class AuthenticationRepository {
       return Left(
         ErrorModel(
           response.left.apiError,
+          message: response.left.message,
         ),
       );
     } else {

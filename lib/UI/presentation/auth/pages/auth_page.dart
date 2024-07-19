@@ -44,6 +44,9 @@ class _AuthPageState extends State<AuthPage> {
           ),
           child: BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
+              if(state is AuthError){
+                showToast(state.message);
+              }
               if (state is OtpVerfiedState) {
                 // Navigator.pushAndRemoveUntil(
                 //   context,
