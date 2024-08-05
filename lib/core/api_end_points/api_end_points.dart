@@ -1,6 +1,6 @@
 class APIEndpoints {
   static const String ticketAppURLIP = "http://13.60.18.138";
-  static const String ticketAppURL = "https://api-staging.goxploronline.net";
+  static const String ticketAppURL = "http://testing.goxploronline.net:80";
 
   // AUTH
   static const String sendOTP = "$ticketAppURL/auth/sendotp/";
@@ -23,4 +23,7 @@ class APIEndpoints {
   static const String revenue = "$ticketAppURL/ownerapp/v1/dashboard/revenue";
   // route
   static const String route = "$ticketAppURL/ownerapp/v1/vehicle/route";
+  // trip details
+  static const String tripDetails =
+      "$ticketAppURL/ownerapp/v1/vehicle/trip-details";
 }

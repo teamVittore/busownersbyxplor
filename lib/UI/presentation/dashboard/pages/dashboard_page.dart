@@ -40,14 +40,15 @@ class DashboardPage extends StatelessWidget {
           },
           builder: (context, state) {
             return state.when(
-              error: (message) => Text(message),
+              error: (message) => Center(child: Text(message)),
               initial: () => const Center(
                 child: CircularProgressIndicator(),
               ),
               loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              success: (revenueModel, selectedPeriod) => SingleChildScrollView(
+              success: (revenueModel, selectedPeriod, start, end) =>
+                  SingleChildScrollView(
                 child: Column(
                   children: [
                     Padding(
@@ -338,15 +339,17 @@ class DashboardPage extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: const Column(
-                          children: [
-                            HomeVehicleTile(),
-                            HomeVehicleTile(),
-                            HomeVehicleTile(),
-                          ],
-                        ),
-                      ),
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            primary: false,
+                            itemCount: revenueModel.busWiseData.length,
+                            itemBuilder: (context, index) => HomeVehicleTile(
+                              start: start,
+                              end: end,
+                              busWiseDataModel: revenueModel.busWiseData[index],
+                            ),
+                          )),
                     )
                   ],
                 ),

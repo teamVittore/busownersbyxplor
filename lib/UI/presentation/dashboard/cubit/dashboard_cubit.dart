@@ -23,6 +23,8 @@ class DashboardCubit extends Cubit<DashboardState> {
       (right) => emit(DashboardState.success(
         RevenueModel.fromJson(right.data),
         selectedPeriod,
+        end: end,
+        start: start,
       )),
     );
   }

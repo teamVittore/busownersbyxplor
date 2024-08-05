@@ -1,3 +1,4 @@
+import 'package:admin_app/UI/presentation/dashboard/models/bus_wise_data_model.dart';
 import 'package:admin_app/UI/presentation/vehicles/widget/substracted_text.dart';
 import 'package:admin_app/core/routes/app_route.dart';
 import 'package:flutter/material.dart';
@@ -5,15 +6,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeVehicleTile extends StatelessWidget {
+  final BusWiseDataModel busWiseDataModel;
+  final String start;
+  final String end;
   const HomeVehicleTile({
     super.key,
+    required this.busWiseDataModel,
+    required this.start,
+    required this.end,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.vehicleDetails.name);
+        context.pushNamed(Routes.vehicleDetails.name, queryParameters: {
+          "id": busWiseDataModel.vehicleId.toString(),
+          "start": start,
+          "end": end,
+          "vehicleNumber": busWiseDataModel.vehicleNumber
+        });
       },
       child: Column(
         children: [
@@ -27,11 +39,11 @@ class HomeVehicleTile extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const SubtractText(input: "KL 01 DY 1234"),
+                SubtractText(input: busWiseDataModel.vehicleNumber),
                 Row(
                   children: [
                     Text(
-                      '₹436',
+                      '₹${busWiseDataModel.revenue}',
                       textAlign: TextAlign.right,
                       style: TextStyle(
                         color: const Color(0xFF181818),

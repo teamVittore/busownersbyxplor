@@ -7,6 +7,7 @@ class BusWiseDataModel {
   final double upiPayment;
   final double expense;
   final double profit;
+  final int vehicleId;
 
   BusWiseDataModel({
     required this.vehicleNumber,
@@ -17,19 +18,20 @@ class BusWiseDataModel {
     required this.upiPayment,
     required this.expense,
     required this.profit,
+    required this.vehicleId,
   });
 
   factory BusWiseDataModel.fromJson(Map<String, dynamic> json) =>
       BusWiseDataModel(
-        vehicleNumber: json["vehicleNumber"],
-        vehicleName: json["vehicleName"],
-        routeName: json["routeName"],
-        revenue: json["revenue"],
-        cashPayment: json["cashPayment"],
-        upiPayment: json["upiPayment"],
-        expense: json["expense"] ?? 0,
-        profit: json["profit"] ?? 0,
-      );
+          vehicleNumber: json["vehicleNumber"],
+          vehicleName: json["vehicleName"],
+          routeName: json["routeName"],
+          revenue: json["revenue"],
+          cashPayment: json["cashPayment"],
+          upiPayment: json["upiPayment"],
+          expense: json["expense"] ?? 0,
+          profit: json["profit"] ?? 0,
+          vehicleId: json["vehicleid"]);
 
   Map<String, dynamic> toJson() => {
         "vehicleNumber": vehicleNumber,

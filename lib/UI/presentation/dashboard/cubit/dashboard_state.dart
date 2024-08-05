@@ -7,5 +7,6 @@ class DashboardState with _$DashboardState {
   const factory DashboardState.loading() = _Loading;
 
   const factory DashboardState.success(
-      RevenueModel revenueModel, String selectedPeriod) = _Success;
+      RevenueModel revenueModel, String selectedPeriod,
+      {required String start, required String end}) = _Success;
 }

@@ -27,9 +27,8 @@ class DashboardRepository {
     log(end);
     if (response.isLeft) {
       return Left(
-        ErrorModel(
-          response.left.apiError,
-        ),
+        ErrorModel(response.left.apiError ?? ApiError.other,
+            message: response.left.message ?? "Server Error"),
       );
     } else {
       return Right(CommonModel.fromJson(response.right));

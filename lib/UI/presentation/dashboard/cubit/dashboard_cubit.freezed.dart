@@ -21,7 +21,8 @@ mixin _$DashboardState {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RevenueModel revenueModel, String selectedPeriod)
+    required TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)
         success,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +31,8 @@ mixin _$DashboardState {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RevenueModel revenueModel, String selectedPeriod)?
+    TResult? Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
         success,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +41,9 @@ mixin _$DashboardState {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RevenueModel revenueModel, String selectedPeriod)? success,
+    TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
+        success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,7 +159,8 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RevenueModel revenueModel, String selectedPeriod)
+    required TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)
         success,
   }) {
     return error(message);
@@ -167,7 +172,8 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RevenueModel revenueModel, String selectedPeriod)?
+    TResult? Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
         success,
   }) {
     return error?.call(message);
@@ -179,7 +185,9 @@ class _$ErrorImpl implements _Error {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RevenueModel revenueModel, String selectedPeriod)? success,
+    TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
+        success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -276,7 +284,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RevenueModel revenueModel, String selectedPeriod)
+    required TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)
         success,
   }) {
     return initial();
@@ -288,7 +297,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RevenueModel revenueModel, String selectedPeriod)?
+    TResult? Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
         success,
   }) {
     return initial?.call();
@@ -300,7 +310,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RevenueModel revenueModel, String selectedPeriod)? success,
+    TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
+        success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -392,7 +404,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RevenueModel revenueModel, String selectedPeriod)
+    required TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)
         success,
   }) {
     return loading();
@@ -404,7 +417,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RevenueModel revenueModel, String selectedPeriod)?
+    TResult? Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
         success,
   }) {
     return loading?.call();
@@ -416,7 +430,9 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RevenueModel revenueModel, String selectedPeriod)? success,
+    TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
+        success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -473,7 +489,11 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RevenueModel revenueModel, String selectedPeriod});
+  $Res call(
+      {RevenueModel revenueModel,
+      String selectedPeriod,
+      String start,
+      String end});
 }
 
 /// @nodoc
@@ -489,6 +509,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? revenueModel = null,
     Object? selectedPeriod = null,
+    Object? start = null,
+    Object? end = null,
   }) {
     return _then(_$SuccessImpl(
       null == revenueModel
@@ -499,6 +521,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
           ? _value.selectedPeriod
           : selectedPeriod // ignore: cast_nullable_to_non_nullable
               as String,
+      start: null == start
+          ? _value.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as String,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -506,16 +536,21 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.revenueModel, this.selectedPeriod);
+  const _$SuccessImpl(this.revenueModel, this.selectedPeriod,
+      {required this.start, required this.end});
 
   @override
   final RevenueModel revenueModel;
   @override
   final String selectedPeriod;
+  @override
+  final String start;
+  @override
+  final String end;
 
   @override
   String toString() {
-    return 'DashboardState.success(revenueModel: $revenueModel, selectedPeriod: $selectedPeriod)';
+    return 'DashboardState.success(revenueModel: $revenueModel, selectedPeriod: $selectedPeriod, start: $start, end: $end)';
   }
 
   @override
@@ -526,11 +561,14 @@ class _$SuccessImpl implements _Success {
             (identical(other.revenueModel, revenueModel) ||
                 other.revenueModel == revenueModel) &&
             (identical(other.selectedPeriod, selectedPeriod) ||
-                other.selectedPeriod == selectedPeriod));
+                other.selectedPeriod == selectedPeriod) &&
+            (identical(other.start, start) || other.start == start) &&
+            (identical(other.end, end) || other.end == end));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, revenueModel, selectedPeriod);
+  int get hashCode =>
+      Object.hash(runtimeType, revenueModel, selectedPeriod, start, end);
 
   @JsonKey(ignore: true)
   @override
@@ -544,10 +582,11 @@ class _$SuccessImpl implements _Success {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RevenueModel revenueModel, String selectedPeriod)
+    required TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)
         success,
   }) {
-    return success(revenueModel, selectedPeriod);
+    return success(revenueModel, selectedPeriod, start, end);
   }
 
   @override
@@ -556,10 +595,11 @@ class _$SuccessImpl implements _Success {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RevenueModel revenueModel, String selectedPeriod)?
+    TResult? Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
         success,
   }) {
-    return success?.call(revenueModel, selectedPeriod);
+    return success?.call(revenueModel, selectedPeriod, start, end);
   }
 
   @override
@@ -568,11 +608,13 @@ class _$SuccessImpl implements _Success {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RevenueModel revenueModel, String selectedPeriod)? success,
+    TResult Function(RevenueModel revenueModel, String selectedPeriod,
+            String start, String end)?
+        success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(revenueModel, selectedPeriod);
+      return success(revenueModel, selectedPeriod, start, end);
     }
     return orElse();
   }
@@ -617,11 +659,13 @@ class _$SuccessImpl implements _Success {
 
 abstract class _Success implements DashboardState {
   const factory _Success(
-          final RevenueModel revenueModel, final String selectedPeriod) =
-      _$SuccessImpl;
+      final RevenueModel revenueModel, final String selectedPeriod,
+      {required final String start, required final String end}) = _$SuccessImpl;
 
   RevenueModel get revenueModel;
   String get selectedPeriod;
+  String get start;
+  String get end;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;

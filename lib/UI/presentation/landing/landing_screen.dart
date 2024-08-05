@@ -15,9 +15,14 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   static const List demoData = [
-    "Dummy text recently with desktop publishing software like Aldus ",
-    "Dummy text recently with desktop publishing software like Aldus ",
-    "Dummy text recently with desktop publishing software like Aldus ",
+    "Track your work and get results",
+    "Aim for the clouds",
+    "Get daily reports",
+  ];
+  static const List demoData1 = [
+    "Manage all of your fleet effortlessly at your fingertips",
+    "Simplify bus operations. Achieve ambitious targets, effortlessly",
+    "Track daily profit and revenue easily",
   ];
   late PageController _pageController;
   int _pageIndex = 0;

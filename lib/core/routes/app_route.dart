@@ -1,7 +1,6 @@
 import 'package:admin_app/UI/presentation/auth/bloc/auth_bloc.dart';
 import 'package:admin_app/UI/presentation/auth/pages/auth_page.dart';
 import 'package:admin_app/UI/presentation/dashboard/pages/dashboard_page.dart';
-import 'package:admin_app/UI/presentation/dashboard/pages/vehicle_trip_page.dart';
 import 'package:admin_app/UI/presentation/home/cubit/home_cubit.dart';
 import 'package:admin_app/UI/presentation/home/home_screen.dart';
 import 'package:admin_app/UI/presentation/home/model/vehicle_model.dart';
@@ -10,6 +9,8 @@ import 'package:admin_app/UI/presentation/profile/cubit/profile_cubit.dart';
 import 'package:admin_app/UI/presentation/profile/profile_screen.dart';
 import 'package:admin_app/UI/presentation/route/pages/route_screen.dart';
 import 'package:admin_app/UI/presentation/splash/splash_screen_page.dart';
+import 'package:admin_app/UI/presentation/vehicle_trip/cubit/vehicle_trip_cubit.dart';
+import 'package:admin_app/UI/presentation/vehicle_trip/pages/vehicle_trip_page.dart';
 import 'package:admin_app/UI/presentation/vehicles/vehicles_screen.dart';
 import 'package:admin_app/core/dataSource/token_manager.dart';
 import 'package:admin_app/core/service/dependancy_injection.dart';
@@ -48,7 +49,23 @@ class AppRoute {
       GoRoute(
         path: Routes.vehicleDetails.path,
         name: Routes.vehicleDetails.name,
-        builder: (_, __) => const VehicleTripPage(),
+        // builder: (context, state) {
+        //   log("dfsfsdfsdfsd ${state.uri.queryParameters["id"]}");
+        //   return const VehicleTripPage(
+        //     name: "data",
+        //   );
+        // },
+        builder: (context, state) => BlocProvider.value(
+          value: locator<VehicleTripCubit>()
+            ..getTripDetail(
+              start: state.uri.queryParameters['start']!,
+              to: state.uri.queryParameters['end']!,
+              vehicleId: state.uri.queryParameters["id"]!,
+            ),
+          child: VehicleTripPage(
+            name: state.uri.queryParameters['vehicleNumber']!,
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.login.path,
