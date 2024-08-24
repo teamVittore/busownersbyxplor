@@ -18,7 +18,7 @@ class HomeVehicleTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         context.pushNamed(Routes.vehicleDetails.name, queryParameters: {
           "id": busWiseDataModel.vehicleId.toString(),

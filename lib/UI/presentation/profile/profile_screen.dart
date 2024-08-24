@@ -1,59 +1,12 @@
 import 'package:admin_app/UI/presentation/auth/bloc/auth_bloc.dart';
+import 'package:admin_app/UI/presentation/profile/components/profile_inf_tile.dart';
 import 'package:admin_app/UI/presentation/profile/cubit/profile_cubit.dart';
+import 'package:admin_app/core/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class ProfileInfTile extends StatelessWidget {
-  final String name;
-  final String description;
-
-  final String leading;
-  const ProfileInfTile({
-    super.key,
-    required this.name,
-    required this.description,
-    required this.leading,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 27.0.w),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SvgPicture.asset(leading),
-          SizedBox(
-            width: 16.w,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  color: const Color(0xFF262D3B),
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              Text(
-                description,
-                style: TextStyle(
-                  color: const Color(0xFF8D9EB2),
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
+import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -109,7 +62,25 @@ class ProfileScreen extends StatelessWidget {
                                       child: Column(
                                         children: [
                                           SizedBox(
-                                            height: 69.h,
+                                            height: 14.h,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.topRight,
+                                            child: InkWell(
+                                              onTap: () {
+                                                context.goNamed(
+                                                    Routes.editprofile.path);
+                                              },
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                    right: 16.w),
+                                                child: SvgPicture.asset(
+                                                    "assets/icons/profile_icon_7.svg"),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 29.h,
                                           ),
                                           ProfileInfTile(
                                             leading:

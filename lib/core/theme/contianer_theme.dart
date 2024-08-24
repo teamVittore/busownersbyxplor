@@ -7,3 +7,9 @@ Decoration containerBorderGrey = BoxDecoration(
   ),
   borderRadius: BorderRadius.circular(12),
 );
+Decoration containerBorderPurple = BoxDecoration(
+  border: Border.all(
+    color: const Color(0xFF4E0BBB),
+  ),
+  borderRadius: BorderRadius.circular(12),
+);

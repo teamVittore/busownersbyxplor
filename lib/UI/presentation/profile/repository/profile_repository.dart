@@ -13,6 +13,28 @@ class ProfileRepository {
     required this.apiService,
     required this.tokenManager,
   });
+  Future<Either<ErrorModel, CommonModel>> editProfile({
+    required String? name,
+    required String? assosiation,
+    required String? pan,
+  }) async {
+    final String? token = await tokenManager.getToken();
+    final response = await apiService.put(APIEndpoints.editProfile,
+        token: token,
+        body: {"name": name, "companyName": assosiation, "companyPAN": pan});
+
+    if (response.isLeft) {
+      return Left(
+        ErrorModel(
+          response.left.apiError,
+          message: response.left.message,
+        ),
+      );
+    } else {
+      return Right(CommonModel.fromJson(response.right));
+    }
+  }
+
   Future<Either<ErrorModel, CommonModel>> getProfile() async {
     final String? token = await tokenManager.getToken();
     final response = await apiService.get(

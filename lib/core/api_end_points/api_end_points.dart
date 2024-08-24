@@ -19,6 +19,8 @@ class APIEndpoints {
 
   // profile
   static const String profile = "$ticketAppURL/ownerapp/v1/profile/fetch";
+  static const String editProfile = "$ticketAppURL/ownerapp/v1/profile/update";
+
   // revenue
   static const String revenue = "$ticketAppURL/ownerapp/v1/dashboard/revenue";
   // route

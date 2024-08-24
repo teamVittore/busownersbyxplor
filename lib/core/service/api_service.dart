@@ -32,9 +32,7 @@ class ApiService {
           return Right(responseData);
         } else {
           return Left(
-            ErrorModel(
-              ApiError.other,message:  response.data['message']
-            ),
+            ErrorModel(ApiError.other, message: response.data['message']),
           );
         }
       } on DioException catch (e) {
@@ -43,9 +41,7 @@ class ApiService {
         final ApiError error = mapStatusCodeToApiError(e.response!.statusCode!);
 
         return Left(
-          ErrorModel(
-            error,message: e.response!.data['message']
-          ),
+          ErrorModel(error, message: e.response!.data['message']),
         );
       }
     } else {
@@ -117,10 +113,9 @@ class ApiService {
         }
         final response = await _dio.put(
           endpoint,
-          queryParameters: queryParameters,
           data: body,
         );
-
+        log(response.data.toString());
         if (response.statusCode == 200) {
           final responseData = response.data;
           return Right(responseData);

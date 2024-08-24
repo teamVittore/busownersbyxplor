@@ -15,9 +15,9 @@ class Cliper extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..color = Colors.white;
+    final Paint paint = Paint()..color = const Color(0xFFF7F8FB);
     final Paint borderPaint = Paint()
-      ..color = const Color(0xFFE9E9E9)
+      ..color = const Color(0xFFF7F8FB)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 

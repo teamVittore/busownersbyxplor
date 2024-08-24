@@ -1,6 +1,5 @@
 import 'package:admin_app/UI/components/nodata/no_data.dart';
 import 'package:admin_app/UI/presentation/home/cubit/home_cubit.dart';
-import 'package:admin_app/UI/presentation/vehicles/widget/live_expense_tile.dart';
 import 'package:admin_app/UI/presentation/vehicles/widget/vehicle_tile.dart';
 import 'package:admin_app/core/service/dependancy_injection.dart';
 import 'package:admin_app/core/theme/themes.dart';
@@ -57,23 +56,13 @@ class VehiclesScreen extends StatelessWidget {
                               locator<HomeCubit>().getVehicles();
                             },
                           )
-                        : Column(
-                            children: [
-                              const LiveExpenseTile(),
-                              SizedBox(
-                                height: 16.h,
-                              ),
-                              Expanded(
-                                child: ListView.builder(
-                                  itemCount: state.list.length,
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) => VehicleTile(
-                                    vehicleModel: state.list[index],
-                                    isRunningLate: true,
-                                  ),
-                                ),
-                              ),
-                            ],
+                        : ListView.builder(
+                            itemCount: state.list.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => VehicleTile(
+                              vehicleModel: state.list[index],
+                              isRunningLate: true,
+                            ),
                           )
                     : const Text("Error")
 

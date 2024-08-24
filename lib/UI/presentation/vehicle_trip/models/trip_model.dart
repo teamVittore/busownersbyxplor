@@ -3,11 +3,11 @@ class TripModel {
   final int tripId;
   final String startTime;
   final String endTime;
-  final int totalRevenue;
-  final int totalCashPayment;
-  final int totalUpiPayments;
-  final int totalProfit;
-
+  final double totalRevenue;
+  final double totalCashPayment;
+  final double totalUpiPayments;
+  final double totalProfit;
+  final String date;
   TripModel({
     required this.vehicleNumber,
     required this.tripId,
@@ -17,6 +17,7 @@ class TripModel {
     required this.totalCashPayment,
     required this.totalUpiPayments,
     required this.totalProfit,
+    required this.date,
   });
 
   factory TripModel.fromJson(Map<String, dynamic> json) => TripModel(
@@ -28,6 +29,7 @@ class TripModel {
         totalCashPayment: json["totalCashPayment"],
         totalUpiPayments: json["totalUpiPayments"],
         totalProfit: json["totalProfit"],
+        date: json['tripDate'],
       );
 
   Map<String, dynamic> toJson() => {

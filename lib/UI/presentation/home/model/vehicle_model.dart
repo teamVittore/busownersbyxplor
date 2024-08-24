@@ -11,6 +11,7 @@ String vehicleModelToJson(VehicleModel data) => json.encode(data.toJson());
 
 class VehicleModel {
   final int vehicleId;
+  final int tripId;
   final String vehicleNumber;
   final String statusText;
   final String fromLocation;
@@ -38,23 +39,24 @@ class VehicleModel {
     required this.totalExpense,
     required this.profit,
     required this.livePassengerCount,
+    required this.tripId,
   });
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) => VehicleModel(
-        vehicleId: json["vehicleId"],
-        vehicleNumber: json["vehicleNumber"],
-        statusText: json["statusText"],
-        fromLocation: json["fromLocation"],
-        toLocation: json["toLocation"],
-        startTime: json["startTime"],
-        endTime: json["endTime"],
-        driverName: json["driverName"],
-        livePassengerCount: json["livePassengerCount"] ?? 0,
-        driverNumber: json["driverNumber"],
-        totalRevenue: json["totalRevenue"],
-        totalExpense: json["totalExpense"],
-        profit: json["profit"] ?? 0,
-      );
+      vehicleId: json["vehicleId"],
+      vehicleNumber: json["vehicleNumber"],
+      statusText: json["statusText"],
+      fromLocation: json["fromLocation"],
+      toLocation: json["toLocation"],
+      startTime: json["startTime"],
+      endTime: json["endTime"],
+      driverName: json["driverName"],
+      livePassengerCount: json["livePassengerCount"] ?? 0,
+      driverNumber: json["driverNumber"],
+      totalRevenue: json["totalRevenue"],
+      totalExpense: json["totalExpense"],
+      profit: json["profit"] ?? 0,
+      tripId: json["tripId"]);
 
   Map<String, dynamic> toJson() => {
         "vehicleId": vehicleId,

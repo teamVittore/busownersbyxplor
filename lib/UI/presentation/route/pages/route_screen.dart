@@ -133,7 +133,7 @@ class _RouteScreenState extends State<RouteScreen> {
               loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              sucess: (routes) => Column(
+              sucess: (routes, originalRouteDetails) => Column(
                 children: [
                   SizedBox(
                       width: 360.w,
@@ -177,31 +177,37 @@ class _RouteScreenState extends State<RouteScreen> {
                               ),
                             ),
                           ),
-                          const LocationTile(
-                            type: 0,
-                            name: "Kochi airport",
-                            description: "8:30 am",
+                          ListView.builder(
+                            primary: false,
+                            itemCount: originalRouteDetails.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => const LocationTile(
+                              type: 0,
+                              name: "Kochi airport",
+                              description: "8:30 am",
+                            ),
                           ),
-                          const LocationTile(
-                            type: 1,
-                            name: "Kochi airport",
-                            description: "8:30 am",
-                          ),
-                          const LocationTile(
-                            type: 2,
-                            name: "Kochi airport",
-                            description: "8:30 am",
-                          ),
-                          const LocationTile(
-                            type: 4,
-                            name: "Kochi airport",
-                            description: "8:30 am",
-                          ),
-                          const LocationTile(
-                            type: 3,
-                            name: "Kochi airport",
-                            description: "8:30 am",
-                          ),
+
+                          // const LocationTile(
+                          //   type: 1,
+                          //   name: "Kochi airport",
+                          //   description: "8:30 am",
+                          // ),
+                          // const LocationTile(
+                          //   type: 2,
+                          //   name: "Kochi airport",
+                          //   description: "8:30 am",
+                          // ),
+                          // const LocationTile(
+                          //   type: 4,
+                          //   name: "Kochi airport",
+                          //   description: "8:30 am",
+                          // ),
+                          // const LocationTile(
+                          //   type: 3,
+                          //   name: "Kochi airport",
+                          //   description: "8:30 am",
+                          // ),
                         ],
                       ),
                     ),

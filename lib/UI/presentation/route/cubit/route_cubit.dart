@@ -17,9 +17,17 @@ class RouteCubit extends Cubit<RouteState> {
     res.fold(
         (left) => emit(RouteState.error(left.message!)),
         (right) => emit(
-              RouteState.sucess(List<RouteDetailModel>.from(right
-                  .data["originalRouteDetails"]
-                  .map((x) => RouteDetailModel.fromJson(x)))),
+              RouteState.sucess(
+                  List<RouteDetailModel>.from(
+                    right.data["originalRouteDetails"].map(
+                      (x) => RouteDetailModel.fromJson(x),
+                    ),
+                  ),
+                  List<OriginalRouteDetails>.from(
+                    right.data["routeDetails"].map(
+                      (x) => OriginalRouteDetails.fromJson(x),
+                    ),
+                  )),
             ));
   }
 }

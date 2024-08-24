@@ -17,18 +17,21 @@ class RevenueModel {
   final double totalCashPayment;
   final double totalUpiPayments;
   final double totalExpense;
+  final String userName;
   final double totalProfit;
   final List<RevenueDataModel> revenueData;
   final List<BusWiseDataModel> busWiseData;
-
+  final String revenuePerformanceMessage;
   RevenueModel({
     required this.totalRevenue,
+    required this.revenuePerformanceMessage,
     required this.totalCashPayment,
     required this.totalUpiPayments,
     required this.totalExpense,
     required this.totalProfit,
     required this.revenueData,
     required this.busWiseData,
+    required this.userName,
   });
 
   factory RevenueModel.fromJson(Map<String, dynamic> json) => RevenueModel(
@@ -36,7 +39,9 @@ class RevenueModel {
         totalCashPayment: json["totalCashPayment"] ?? 0,
         totalUpiPayments: json["totalUpiPayments"] ?? 0,
         totalExpense: json["totalExpense"],
+        revenuePerformanceMessage: json['revenuePerformanceMessage'],
         totalProfit: json["totalProfit"],
+        userName: json["userName"],
         revenueData: List<RevenueDataModel>.from(
             json["revenueData"].map((x) => RevenueDataModel.fromJson(x))),
         busWiseData: List<BusWiseDataModel>.from(

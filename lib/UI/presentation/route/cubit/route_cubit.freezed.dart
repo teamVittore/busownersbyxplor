@@ -21,7 +21,9 @@ mixin _$RouteState {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<RouteDetailModel> routes) sucess,
+    required TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)
+        sucess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +31,9 @@ mixin _$RouteState {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<RouteDetailModel> routes)? sucess,
+    TResult? Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +41,9 @@ mixin _$RouteState {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<RouteDetailModel> routes)? sucess,
+    TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +159,9 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<RouteDetailModel> routes) sucess,
+    required TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)
+        sucess,
   }) {
     return error(message);
   }
@@ -164,7 +172,9 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<RouteDetailModel> routes)? sucess,
+    TResult? Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
   }) {
     return error?.call(message);
   }
@@ -175,7 +185,9 @@ class _$ErrorImpl implements _Error {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<RouteDetailModel> routes)? sucess,
+    TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -272,7 +284,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<RouteDetailModel> routes) sucess,
+    required TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)
+        sucess,
   }) {
     return initial();
   }
@@ -283,7 +297,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<RouteDetailModel> routes)? sucess,
+    TResult? Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
   }) {
     return initial?.call();
   }
@@ -294,7 +310,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<RouteDetailModel> routes)? sucess,
+    TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -386,7 +404,9 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<RouteDetailModel> routes) sucess,
+    required TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)
+        sucess,
   }) {
     return loading();
   }
@@ -397,7 +417,9 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<RouteDetailModel> routes)? sucess,
+    TResult? Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
   }) {
     return loading?.call();
   }
@@ -408,7 +430,9 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<RouteDetailModel> routes)? sucess,
+    TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -465,7 +489,9 @@ abstract class _$$SucessImplCopyWith<$Res> {
           _$SucessImpl value, $Res Function(_$SucessImpl) then) =
       __$$SucessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<RouteDetailModel> routes});
+  $Res call(
+      {List<RouteDetailModel> routes,
+      List<OriginalRouteDetails> originalRouteDetails});
 }
 
 /// @nodoc
@@ -480,12 +506,17 @@ class __$$SucessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? routes = null,
+    Object? originalRouteDetails = null,
   }) {
     return _then(_$SucessImpl(
       null == routes
           ? _value._routes
           : routes // ignore: cast_nullable_to_non_nullable
               as List<RouteDetailModel>,
+      null == originalRouteDetails
+          ? _value._originalRouteDetails
+          : originalRouteDetails // ignore: cast_nullable_to_non_nullable
+              as List<OriginalRouteDetails>,
     ));
   }
 }
@@ -493,7 +524,10 @@ class __$$SucessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SucessImpl implements _Sucess {
-  const _$SucessImpl(final List<RouteDetailModel> routes) : _routes = routes;
+  const _$SucessImpl(final List<RouteDetailModel> routes,
+      final List<OriginalRouteDetails> originalRouteDetails)
+      : _routes = routes,
+        _originalRouteDetails = originalRouteDetails;
 
   final List<RouteDetailModel> _routes;
   @override
@@ -503,9 +537,18 @@ class _$SucessImpl implements _Sucess {
     return EqualUnmodifiableListView(_routes);
   }
 
+  final List<OriginalRouteDetails> _originalRouteDetails;
+  @override
+  List<OriginalRouteDetails> get originalRouteDetails {
+    if (_originalRouteDetails is EqualUnmodifiableListView)
+      return _originalRouteDetails;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_originalRouteDetails);
+  }
+
   @override
   String toString() {
-    return 'RouteState.sucess(routes: $routes)';
+    return 'RouteState.sucess(routes: $routes, originalRouteDetails: $originalRouteDetails)';
   }
 
   @override
@@ -513,12 +556,16 @@ class _$SucessImpl implements _Sucess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SucessImpl &&
-            const DeepCollectionEquality().equals(other._routes, _routes));
+            const DeepCollectionEquality().equals(other._routes, _routes) &&
+            const DeepCollectionEquality()
+                .equals(other._originalRouteDetails, _originalRouteDetails));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_routes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_routes),
+      const DeepCollectionEquality().hash(_originalRouteDetails));
 
   @JsonKey(ignore: true)
   @override
@@ -532,9 +579,11 @@ class _$SucessImpl implements _Sucess {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<RouteDetailModel> routes) sucess,
+    required TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)
+        sucess,
   }) {
-    return sucess(routes);
+    return sucess(routes, originalRouteDetails);
   }
 
   @override
@@ -543,9 +592,11 @@ class _$SucessImpl implements _Sucess {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<RouteDetailModel> routes)? sucess,
+    TResult? Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
   }) {
-    return sucess?.call(routes);
+    return sucess?.call(routes, originalRouteDetails);
   }
 
   @override
@@ -554,11 +605,13 @@ class _$SucessImpl implements _Sucess {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<RouteDetailModel> routes)? sucess,
+    TResult Function(List<RouteDetailModel> routes,
+            List<OriginalRouteDetails> originalRouteDetails)?
+        sucess,
     required TResult orElse(),
   }) {
     if (sucess != null) {
-      return sucess(routes);
+      return sucess(routes, originalRouteDetails);
     }
     return orElse();
   }
@@ -602,9 +655,11 @@ class _$SucessImpl implements _Sucess {
 }
 
 abstract class _Sucess implements RouteState {
-  const factory _Sucess(final List<RouteDetailModel> routes) = _$SucessImpl;
+  const factory _Sucess(final List<RouteDetailModel> routes,
+      final List<OriginalRouteDetails> originalRouteDetails) = _$SucessImpl;
 
   List<RouteDetailModel> get routes;
+  List<OriginalRouteDetails> get originalRouteDetails;
   @JsonKey(ignore: true)
   _$$SucessImplCopyWith<_$SucessImpl> get copyWith =>
       throw _privateConstructorUsedError;

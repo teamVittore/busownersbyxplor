@@ -1,4 +1,5 @@
 import 'package:admin_app/UI/presentation/home/model/vehicle_model.dart';
+import 'package:admin_app/UI/presentation/vehicle_trip/models/trip_model.dart';
 import 'package:admin_app/UI/presentation/vehicle_trip/repository/trip_repository.dart';
 import 'package:admin_app/core/service/dependancy_injection.dart';
 import 'package:bloc/bloc.dart';
@@ -21,8 +22,8 @@ class VehicleTripCubit extends Cubit<VehicleTripState> {
         vehicleId: vehicleId, start: start, to: to);
     res.fold(
       (left) => emit(VehicleTripState.error(left.message!)),
-      (right) => emit(VehicleTripState.success(List<VehicleModel>.from(
-          right.data.map((x) => VehicleModel.fromJson(x))))),
+      (right) => emit(VehicleTripState.success(
+          List<TripModel>.from(right.data.map((x) => TripModel.fromJson(x))))),
     );
   }
 }

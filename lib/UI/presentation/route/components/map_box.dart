@@ -25,23 +25,25 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _initialCameraPosition == null
-          ? const Center(child: CircularProgressIndicator())
-          : GoogleMap(
-              mapType: MapType.normal,
-              initialCameraPosition: _initialCameraPosition!,
-              polylines: _polylines,
-              markers: _markers,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-            ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: const Text('To the lake!'),
-        icon: const Icon(Icons.directions_boat),
-      ),
-    );
+        body: _initialCameraPosition == null
+            ? const Center(child: CircularProgressIndicator())
+            : GoogleMap(
+                mapType: MapType.normal,
+                initialCameraPosition: _initialCameraPosition!,
+                polylines: _polylines,
+                markers: _markers,
+                zoomControlsEnabled: false,
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                },
+              ),
+        floatingActionButton: const CircleAvatar(
+          backgroundColor: Colors.white,
+          child: Icon(
+            Icons.gps_fixed_outlined,
+            color: Color(0xFF4E0BBB),
+          ),
+        ));
   }
 
   @override

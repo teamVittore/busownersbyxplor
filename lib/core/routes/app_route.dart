@@ -4,8 +4,13 @@ import 'package:admin_app/UI/presentation/dashboard/pages/dashboard_page.dart';
 import 'package:admin_app/UI/presentation/home/cubit/home_cubit.dart';
 import 'package:admin_app/UI/presentation/home/home_screen.dart';
 import 'package:admin_app/UI/presentation/home/model/vehicle_model.dart';
+import 'package:admin_app/UI/presentation/intro/pages/intro_page.dart';
+import 'package:admin_app/UI/presentation/payment/pages/add_card_details_page.dart';
+import 'package:admin_app/UI/presentation/payment/pages/add_upi_page.dart';
+import 'package:admin_app/UI/presentation/payment/pages/payment_page.dart';
 import 'package:admin_app/UI/presentation/privacy_policy/pages/privacy_policy_page.dart';
 import 'package:admin_app/UI/presentation/profile/cubit/profile_cubit.dart';
+import 'package:admin_app/UI/presentation/profile/edit_profile_screen.dart';
 import 'package:admin_app/UI/presentation/profile/profile_screen.dart';
 import 'package:admin_app/UI/presentation/route/pages/route_screen.dart';
 import 'package:admin_app/UI/presentation/splash/splash_screen_page.dart';
@@ -44,7 +49,7 @@ class AppRoute {
       GoRoute(
         path: Routes.root.path,
         name: Routes.root.name,
-        redirect: (_, __) => Routes.dashboard.path,
+        redirect: (_, __) => Routes.intro.path,
       ),
       GoRoute(
         path: Routes.vehicleDetails.path,
@@ -104,7 +109,16 @@ class AppRoute {
                 child: ProfileScreen(),
               ),
             ),
-            routes: const [],
+            routes: [
+              GoRoute(
+                path: Routes.editprofile.path,
+                name: Routes.editprofile.name,
+                builder: (_, __) => BlocProvider.value(
+                  value: locator<ProfileCubit>()..getProfile(),
+                  child: const EditProfileScreen(),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -112,6 +126,26 @@ class AppRoute {
         path: Routes.privacyPolicy.path,
         name: Routes.privacyPolicy.name,
         builder: (_, __) => const PrivacyPolicyPage(),
+      ),
+      GoRoute(
+        path: Routes.intro.path,
+        name: Routes.intro.name,
+        builder: (_, __) => const IntroPage(),
+      ),
+      GoRoute(
+        path: Routes.payment.path,
+        name: Routes.payment.name,
+        builder: (_, __) => const PaymentPage(),
+      ),
+      GoRoute(
+        path: Routes.addCard.path,
+        name: Routes.addCard.name,
+        builder: (_, __) => const AddCardDetailsPage(),
+      ),
+      GoRoute(
+        path: Routes.addUpi.path,
+        name: Routes.addUpi.name,
+        builder: (_, __) => const AddUpiPage(),
       ),
       GoRoute(
         path: Routes.routes.path,
@@ -167,8 +201,15 @@ enum Routes {
   vehicles("/vehicles"),
   privacyPolicy("/privacy_policy"),
   profile("/profile"),
+  editprofile("editprofile"),
   login("/login"),
   routes("/routes"),
+  intro("/intro"),
+  payment("/payment"),
+  addCard("/addcard"),
+  addUpi("/addupi"),
+  addBank("/addbank"),
+
   forgotPass("/forgotpass"),
   otpVerification("/otpverification"),
   resetPassword("/resetpassword");

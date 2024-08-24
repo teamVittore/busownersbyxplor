@@ -1,11 +1,14 @@
+import 'dart:developer';
+
 import 'package:admin_app/core/theme/contianer_theme.dart';
 import 'package:admin_app/core/theme/textstyle_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TextFieldComponent extends StatelessWidget {
+class TextFieldComponent extends StatefulWidget {
   final bool readOnly;
+
   final TextEditingController controller;
   final TextInputType? textInputType;
   final Widget? suffixIcon;
@@ -18,6 +21,7 @@ class TextFieldComponent extends StatelessWidget {
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+
   const TextFieldComponent({
     super.key,
     required this.controller,
@@ -36,40 +40,7 @@ class TextFieldComponent extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-        left: 16.w,
-        top: 14.h,
-        bottom: 14.h,
-        right: 16.w,
-      ),
-      decoration: containerBorderGrey,
-      child: TextFormField(
-        inputFormatters: inputFormatters,
-        keyboardType: textInputType,
-        readOnly: readOnly,
-        controller: controller,
-        obscureText: isPassword,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(0),
-          isDense: true,
-          labelText: labelText,
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: const Color(0xFF728492),
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w400,
-          ),
-          errorText: hasError ? errorText : null,
-          border: InputBorder.none,
-        ),
-        onChanged: onChanged,
-        onSaved: onSaved,
-        validator: validator,
-      ),
-    );
-  }
+  State<TextFieldComponent> createState() => _TextFieldComponentState();
 }
 
 class TextFieldComponentTitle extends StatelessWidget {
@@ -207,5 +178,59 @@ class TextFieldWithBorder extends StatelessWidget {
           ),
           suffixIcon: suffix),
     );
+  }
+}
+
+class _TextFieldComponentState extends State<TextFieldComponent> {
+  final FocusNode _focusNode = FocusNode();
+  bool border = false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        left: 16.w,
+        top: 14.h,
+        bottom: 14.h,
+        right: 16.w,
+      ),
+      decoration:
+          _focusNode.hasFocus ? containerBorderPurple : containerBorderGrey,
+      child: TextFormField(
+        textInputAction: TextInputAction.next,
+        focusNode: _focusNode,
+        inputFormatters: widget.inputFormatters,
+        keyboardType: widget.textInputType,
+        readOnly: widget.readOnly,
+        controller: widget.controller,
+        obscureText: widget.isPassword,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(0),
+          isDense: true,
+          labelText: widget.labelText,
+          hintText: widget.hintText,
+          hintStyle: TextStyle(
+            color: const Color(0xFF728492),
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
+          ),
+          errorText: widget.hasError ? widget.errorText : null,
+          border: InputBorder.none,
+        ),
+        onChanged: widget.onChanged,
+        onSaved: widget.onSaved,
+        validator: widget.validator,
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(() {
+      setState(() {
+        log("message received ${_focusNode.hasFocus}");
+        border = _focusNode.hasFocus;
+      });
+    });
   }
 }

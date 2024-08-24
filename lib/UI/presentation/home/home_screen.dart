@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         body: child,
         bottomNavigationBar: Container(
           width: 360.w,
-          height: 63.h,
+          height: 64.h,
           decoration: const ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -63,10 +63,9 @@ class HomeScreen extends StatelessWidget {
                           height: 3.h,
                         ),
                         SizedBox(
-                          width: 66.w,
+                          width: 70.w,
                           child: Text(
                             'Dashboard',
-                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: GoRouterState.of(context).uri.toString() ==
                                       Routes.dashboard.path
@@ -101,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                           height: 3.h,
                         ),
                         SizedBox(
-                          width: 66.w,
+                          width: 70.w,
                           child: Text(
                             'Live Trips',
                             textAlign: TextAlign.center,
@@ -138,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                           height: 3.h,
                         ),
                         SizedBox(
-                          width: 66.w,
+                          width: 70.w,
                           child: Text(
                             'Profile',
                             textAlign: TextAlign.center,

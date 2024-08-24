@@ -48,16 +48,16 @@ class _TimePeriodSelectorState extends State<TimePeriodSelector> {
         ),
       ],
       child: Container(
-        width: 120.w,
+        //  width: 120.w,
         height: 32.h,
         padding:
             EdgeInsets.only(top: 7.h, left: 15.w, right: 13.w, bottom: 7.h),
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
-          color: Colors.white,
+          color: const Color(0xFFEBEDF8),
           shape: RoundedRectangleBorder(
-            side: const BorderSide(width: 1, color: Color(0xFFA1A1A1)),
-            borderRadius: BorderRadius.circular(12),
+            side: const BorderSide(width: 1, color: Color(0xFFEBEDF8)),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
         child: Row(
@@ -72,6 +72,7 @@ class _TimePeriodSelectorState extends State<TimePeriodSelector> {
                 height: 1,
               ),
             ),
+            SizedBox(width: 5.w),
             const Icon(Icons.keyboard_arrow_down),
           ],
         ),

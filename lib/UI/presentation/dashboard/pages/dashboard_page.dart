@@ -1,4 +1,5 @@
 import 'package:admin_app/UI/presentation/dashboard/components/banner/clipper.dart';
+import 'package:admin_app/UI/presentation/dashboard/components/highlight_text.dart';
 import 'package:admin_app/UI/presentation/dashboard/components/home_vehicle_tile.dart';
 import 'package:admin_app/UI/presentation/dashboard/components/time_selector.dart';
 import 'package:admin_app/UI/presentation/dashboard/cubit/dashboard_cubit.dart';
@@ -63,70 +64,12 @@ class DashboardPage extends StatelessWidget {
                             padding: const EdgeInsets.all(20.0),
                             child: Center(
                               child: SizedBox(
-                                width: 250.w,
-                                child: Text.rich(
-                                  TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'Hi Anilkumar,\n',
-                                        style: TextStyle(
-                                          color: const Color(0xFF2C2C2C),
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: 'Your bus',
-                                        style: TextStyle(
-                                          color: const Color(0xFF2C2C2C),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: 'es are performing ',
-                                        style: TextStyle(
-                                          color: const Color(0xFF2C2C2C),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: '2%',
-                                        style: TextStyle(
-                                          color: const Color(0xFF4E0BBB),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: ' ',
-                                        style: TextStyle(
-                                          color: const Color(0xFF2C2C2C),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: 'better than',
-                                        style: TextStyle(
-                                          color: const Color(0xFF4E0BBB),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: ' last week.',
-                                        style: TextStyle(
-                                          color: const Color(0xFF2C2C2C),
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                                  width: 250.w,
+                                  child: HighlightPercentageText(
+                                    userName: revenueModel.userName,
+                                    dynamicText:
+                                        revenueModel.revenuePerformanceMessage,
+                                  )),
                             ),
                           ),
                         ),
@@ -143,7 +86,8 @@ class DashboardPage extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border:
+                                    Border.all(color: const Color(0xFFB7AFFF)),
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white),
                             width: 160.w,
@@ -178,7 +122,8 @@ class DashboardPage extends StatelessWidget {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border:
+                                    Border.all(color: const Color(0xFFB7AFFF)),
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white),
                             width: 160.w,
@@ -226,7 +171,8 @@ class DashboardPage extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border:
+                                    Border.all(color: const Color(0xFFB7AFFF)),
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white),
                             width: 160.w,
@@ -258,7 +204,8 @@ class DashboardPage extends StatelessWidget {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border:
+                                    Border.all(color: const Color(0xFFB7AFFF)),
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white),
                             width: 160.w,
@@ -277,7 +224,7 @@ class DashboardPage extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    'Online Payment',
+                                    'Cash Payment',
                                     style: TextStyle(
                                       color: const Color(0xFF181818),
                                       fontSize: 12.sp,
@@ -303,7 +250,7 @@ class DashboardPage extends StatelessWidget {
                             TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'Expenses',
+                                  text: 'Bus wise report',
                                   style: TextStyle(
                                     color: const Color(0xFF181818),
                                     fontSize: 16.sp,

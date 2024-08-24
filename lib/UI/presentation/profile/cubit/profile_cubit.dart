@@ -9,6 +9,23 @@ part 'profile_state.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepository _profileRepository = locator<ProfileRepository>();
   ProfileCubit() : super(ProfileInitial());
+  editProfile({
+    required String? name,
+    required String? assosiation,
+    required String? pan,
+  }) async {
+    emit(ProfileEditLoading());
+    var res = await _profileRepository.editProfile(
+        name: name, assosiation: assosiation, pan: pan);
+
+    res.fold(
+      (left) => emit(ProfileEditError(message: left.message!)),
+      (right) => emit(ProfileEditSuccess(
+          message: right.message,
+          profileModel: ProfileModel.fromJson(right.data))),
+    );
+  }
+
   getProfile() async {
     emit(ProfileLoading());
     var res = await _profileRepository.getProfile();

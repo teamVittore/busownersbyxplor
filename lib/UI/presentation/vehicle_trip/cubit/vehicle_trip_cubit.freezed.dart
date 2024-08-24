@@ -21,7 +21,7 @@ mixin _$VehicleTripState {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<VehicleModel> tripListModel) success,
+    required TResult Function(List<TripModel> tripListModel) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$VehicleTripState {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<VehicleModel> tripListModel)? success,
+    TResult? Function(List<TripModel> tripListModel)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$VehicleTripState {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<VehicleModel> tripListModel)? success,
+    TResult Function(List<TripModel> tripListModel)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +153,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<VehicleModel> tripListModel) success,
+    required TResult Function(List<TripModel> tripListModel) success,
   }) {
     return error(message);
   }
@@ -164,7 +164,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<VehicleModel> tripListModel)? success,
+    TResult? Function(List<TripModel> tripListModel)? success,
   }) {
     return error?.call(message);
   }
@@ -175,7 +175,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<VehicleModel> tripListModel)? success,
+    TResult Function(List<TripModel> tripListModel)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -272,7 +272,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<VehicleModel> tripListModel) success,
+    required TResult Function(List<TripModel> tripListModel) success,
   }) {
     return initial();
   }
@@ -283,7 +283,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<VehicleModel> tripListModel)? success,
+    TResult? Function(List<TripModel> tripListModel)? success,
   }) {
     return initial?.call();
   }
@@ -294,7 +294,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<VehicleModel> tripListModel)? success,
+    TResult Function(List<TripModel> tripListModel)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -386,7 +386,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<VehicleModel> tripListModel) success,
+    required TResult Function(List<TripModel> tripListModel) success,
   }) {
     return loading();
   }
@@ -397,7 +397,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<VehicleModel> tripListModel)? success,
+    TResult? Function(List<TripModel> tripListModel)? success,
   }) {
     return loading?.call();
   }
@@ -408,7 +408,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<VehicleModel> tripListModel)? success,
+    TResult Function(List<TripModel> tripListModel)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -465,7 +465,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<VehicleModel> tripListModel});
+  $Res call({List<TripModel> tripListModel});
 }
 
 /// @nodoc
@@ -485,7 +485,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == tripListModel
           ? _value._tripListModel
           : tripListModel // ignore: cast_nullable_to_non_nullable
-              as List<VehicleModel>,
+              as List<TripModel>,
     ));
   }
 }
@@ -493,12 +493,12 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<VehicleModel> tripListModel)
+  const _$SuccessImpl(final List<TripModel> tripListModel)
       : _tripListModel = tripListModel;
 
-  final List<VehicleModel> _tripListModel;
+  final List<TripModel> _tripListModel;
   @override
-  List<VehicleModel> get tripListModel {
+  List<TripModel> get tripListModel {
     if (_tripListModel is EqualUnmodifiableListView) return _tripListModel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tripListModel);
@@ -534,7 +534,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<VehicleModel> tripListModel) success,
+    required TResult Function(List<TripModel> tripListModel) success,
   }) {
     return success(tripListModel);
   }
@@ -545,7 +545,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(String message)? error,
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<VehicleModel> tripListModel)? success,
+    TResult? Function(List<TripModel> tripListModel)? success,
   }) {
     return success?.call(tripListModel);
   }
@@ -556,7 +556,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<VehicleModel> tripListModel)? success,
+    TResult Function(List<TripModel> tripListModel)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -604,10 +604,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements VehicleTripState {
-  const factory _Success(final List<VehicleModel> tripListModel) =
-      _$SuccessImpl;
+  const factory _Success(final List<TripModel> tripListModel) = _$SuccessImpl;
 
-  List<VehicleModel> get tripListModel;
+  List<TripModel> get tripListModel;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;

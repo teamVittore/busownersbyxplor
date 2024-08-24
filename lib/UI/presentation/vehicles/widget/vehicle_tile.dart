@@ -78,7 +78,7 @@ class VehicleTile extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: vehicleModel.statusText,
+                                text: vehicleModel.tripId.toString(),
                                 style: TextStyle(
                                   color: const Color(0xFF334155),
                                   fontSize: 11.sp,
@@ -112,6 +112,14 @@ class VehicleTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        'Start trip',
+                        style: TextStyle(
+                          color: const Color(0xFF6B778C),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Text(
                         vehicleModel.startTime,
                         style: TextStyle(
                           color: const Color(0xFF334155),
@@ -119,14 +127,6 @@ class VehicleTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      Text(
-                        'Start trip',
-                        style: TextStyle(
-                          color: const Color(0xFF6B778C),
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )
                     ],
                   ),
                   Container(

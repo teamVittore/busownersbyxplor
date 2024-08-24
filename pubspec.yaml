@@ -47,6 +47,9 @@ dependencies:
   freezed_annotation: ^2.4.1
   freezed: ^2.5.2
   google_maps_flutter: ^2.2.8
+  intl: ^0.18.1
+  credit_card_validator: ^2.1.0
+  crypto: ^3.0.5
 
 
 dev_dependencies:

@@ -2,6 +2,8 @@ import 'package:admin_app/UI/presentation/auth/bloc/auth_bloc.dart';
 import 'package:admin_app/UI/presentation/dashboard/cubit/dashboard_cubit.dart';
 import 'package:admin_app/UI/presentation/dashboard/repository/dashboard_repository.dart';
 import 'package:admin_app/UI/presentation/home/repository/home_repository.dart';
+import 'package:admin_app/UI/presentation/payment/cubit/auto_debit_cubit.dart';
+import 'package:admin_app/UI/presentation/payment/repository/payment_repository.dart';
 import 'package:admin_app/UI/presentation/profile/cubit/profile_cubit.dart';
 import 'package:admin_app/UI/presentation/profile/repository/profile_repository.dart';
 import 'package:admin_app/UI/presentation/route/cubit/route_cubit.dart';
@@ -58,6 +60,12 @@ Future<void> serviceLocators() async {
       tokenManager: locator(),
     ),
   );
+  locator.registerLazySingleton<PaymentRepository>(
+    () => PaymentRepository(
+      apiService: locator(),
+      tokenManager: locator(),
+    ),
+  );
   locator.registerLazySingleton(
     () => AuthBloc(),
   );
@@ -75,5 +83,8 @@ Future<void> serviceLocators() async {
   );
   locator.registerLazySingleton(
     () => VehicleTripCubit(),
+  );
+  locator.registerLazySingleton(
+    () => AutoDebitCubit(),
   );
 }
